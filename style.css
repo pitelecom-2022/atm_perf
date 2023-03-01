@@ -1,0 +1,17 @@
+body {
+  background-image: url("./avion.png");
+  color: red;
+}
+
+label {
+  font-weight:700
+}
+
+.batch {
+	display: flex;
+	padding:64px
+}
+
+.batch form {
+	margin: auto
+}

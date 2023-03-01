@@ -1,7 +1,9 @@
 
 <?php
 /*
-  error_reporting( E_ALL );
+
+Main processing file called by AJAX from inside index.php 
+error_reporting( E_ALL );
 ini_set( "display_errors", 1 );
  */
 

@@ -74,7 +74,7 @@
 					Pole Navigation Aérienne
 				<h4>
 				<h2>
-					Simulateur pour le calcul de la distance parcourue et de l'UDS des vols 
+					Simulateur pour le calcul des distances parcourues et des UDS des vols 
 				</h2>
 			</div>
 			</div>

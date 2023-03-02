@@ -33,7 +33,7 @@
 
 	    })
 		
-		$("label").css(
+		$(".single label").css(
 		{
 			"text-transform":"uppercase"
 		})

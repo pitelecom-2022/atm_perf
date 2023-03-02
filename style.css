@@ -15,3 +15,11 @@ label {
 .batch form {
 	margin: auto
 }
+
+.stats {
+  width:75%;
+  margin: 128px auto;
+  opacity: 0.5;
+  background-color: white;;
+  font-weight: 700;
+}

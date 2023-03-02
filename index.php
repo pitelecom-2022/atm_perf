@@ -1,5 +1,6 @@
 <?php
 		require_once("./config.php");
+		include "./header.php";
 
 		$query = "select Type FROM aircrafts order by Type ASC";
 		$stmt = $conn -> prepare($query);
@@ -22,46 +23,7 @@
 			$waypoints .= "<option>" . $row["WAYPOINT"] . "</option>";
 		}
 		$waypoints .= "</select>";
-
 		?>
-		<!DOCTYPE html>
-		<html lang="en">
-		<head>
-			<meta charset="UTF-8">
-			<meta http-equiv="X-UA-Compatible" content="IE=edge">
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-			<link rel="stylesheet" href="./style.css">
-			<title>Vols: UDS & Distance </title>
-			<style>
-			body {
-					  background-image: url("./avion.png");
-					  background-repeat: no-repeat;
-					  background-position: topleft;
-					  background-size: cover;
-					  color: black;
-					  font-weight: 700;
-			}
-
-			label {
-					  font-weight:700
-			}
-			.switch {
-				display: flex;
-			}
-			.switch div {
-				flex:1;
-			}
-			.single_switch, .batch_switch {
-				cursor: pointer
-			}
-
-	</style>
-
-
-				
-
 			
 		</head>
 		<body class="w3-content">
@@ -84,18 +46,17 @@
 			</div>
 			<div id=""
  class="batch_switch w3-container w3-grey">
-				<h4>Batch Flights #3</h4>
+				<h4>Batch Flights</h4>
 			</div>
 		</div>
 
 		<div class="w3-panel batch">
-			<form>
-					
-				<label for="rdp_file">RDP file</label> <br>
-				<input type="file" name="rdp_file"><br><br>
-				<label for="fdp_file">FDP File</label><br>
-				<input type="file" name="fdp_file"><br><br>
-				<input type="submit" class="w3-button w3-blue" value="Process">
+			<form method="POST" action="process_acb.php" enctype="multipart/form-data"> 		
+				<label for="rdp_file">ACB file</label> <br>
+				<input type="file" name="ACB" id="ACB"><br><br>
+				<label for="fdp_file">FFP File</label><br>
+				<input type="file" name="FDP"><br><br>
+				<input type="submit" class="w3-button w3-blue" value="Process" name="submit">
 			</form>
 		</div>	
 		<div class="single">

@@ -6,16 +6,34 @@ include "./header.php";
 
 if (isset($_POST["submit"])) {
 
+    // Récupérer les fichier ACB & FDP et les stocker dans le fichier uploads
 
+    $target_dir = "uploads/";
+    //$acb_target_file = $target_dir . basename($_FILES["ACB"]["name"]);
+    $acb_target_file = $target_dir . basename($_FILES["ACB"]["name"]);
+    
+    //$fdp_target_file = $target_dir . basename($_FILES["FDP"]["name"]);
+    $fdp_target_file = $target_dir . "fdp.csv";
+    
+    if ($_FILES["ACB"]["size"]>0) {
+        if(!move_uploaded_file($_FILES["ACB"]["tmp_name"],$acb_target_file) )  {
+            echo "Upload failed. Please ask you administrator !!";
+        }
+    }
+    
+    if ($_FILES["FDP"]["size"]>0) {
+        if (!move_uploaded_file($_FILES["FDP"]["tmp_name"], $fdp_target_file) ) {
+            echo "There was a problem while moving the uploaded file!!";
+        }
+    }
     // Variables 
     $distance = 0;
     $output = "";
     $flights = 0;
     $directes = 0;
 
-
     // Traitement du fichier ACB (csv)
-    if (($handle = fopen(".uploads/acb.csv", "r")) !== FALSE) {
+    if (($handle = fopen("./uploads/acb.csv", "r")) !== FALSE) {
         while (($data = fgetcsv($handle, 1024, ";")) !== FALSE) {
 		
             if (strlen($data[1]) >0 ) {
@@ -49,24 +67,8 @@ if (isset($_POST["submit"])) {
 }
 
 
-/*
-echo "<pre>";
-print_r($_FILES);
-echo "</pre>";
 
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["ACB"]["name"]);
 
-if(move_uploaded_file($_FILES["ACB"]["tmp_name"],$target_file)) {
-    echo "File moved successfully!!";
-}
-else {
-    echo "There was a problem while moving the uploaded file!!";
-}
-
-var_dump($target_file);
-
-*/
 ?>
 
 

@@ -13,11 +13,11 @@ if (isset($_POST["submit"])) {
     $flights = 0;
     $directes = 0;
 
+
     // Traitement du fichier ACB (csv)
-    if (($handle = fopen("acb.csv", "r")) !== FALSE) {
+    if (($handle = fopen(".uploads/acb.csv", "r")) !== FALSE) {
         while (($data = fgetcsv($handle, 1024, ";")) !== FALSE) {
-
-
+		
             if (strlen($data[1]) >0 ) {
                 if ( strlen($data[22]) == 0 ){
                     $directes ++;
@@ -77,7 +77,7 @@ var_dump($target_file);
   font-weight: 700;">
 
     <div class="w3-container w3-section" style="margin-bottom:24px">
-        <a href="/atm_perf/" style="text-decoration: none; font-weight:400">
+        <a href="http://dev.navigation.ma" style="text-decoration: none; font-weight:400">
             <i class="fa fa-home w3-margin-right"></i> Home 
         </a>
     </div>

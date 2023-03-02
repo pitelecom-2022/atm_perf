@@ -52,12 +52,17 @@
 
 		<div class="w3-panel batch">
 			<form method="POST" action="process_acb.php" enctype="multipart/form-data"> 		
-				<label for="rdp_file">ACB file</label> <br>
+				<label for="rdp_file">Air Carrier Billing (ACB) file <upper class="w3-text-red">(*)</upper></label> <br>
 				<input type="file" name="ACB" id="ACB"><br><br>
-				<label for="fdp_file">FFP File</label><br>
+				<label for="fdp_file">Flight Data Plan (FDP) File</label><br>
 				<input type="file" name="FDP"><br><br>
 				<input type="submit" class="w3-button w3-blue" value="Process" name="submit">
 			</form>
+
+			<div class="w3-container w3-small">
+				<p>Le format des deux fichier doit être CSV.</p>
+				<p>Le fichier ACB est obligatoire</p>
+			</div>
 		</div>	
 		<div class="single">
 		<div class="w3-panel">
